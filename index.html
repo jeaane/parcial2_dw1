@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Interfaz Bootstrap</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding-top: 70px; }
+    .sidebar { width: 250px; position: fixed; top: 70px; left: 0; height: 100%; background-color: #f8f9fa; padding: 20px; }
+    .content { margin-left: 270px; padding: 20px; }
+    .counter { font-size: 1.5rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Mi Sitio</a>
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Proyectos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Buscar">
+          <button class="btn btn-outline-light" type="submit">Buscar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h4>Sección Principal</h4>
+    <ul class="nav flex-column">
+      <li class="nav-item"><a class="nav-link" href="#">Submenú 1</a></li>
+      <li class="nav-item"><a class="nav-link" href="#">Submenú 2</a></li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content row">
+    <!-- Card 1 -->
+    <div class="col-md-4">
+      <div class="card">
+        <img src="images/image1.webp" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Card 1</h5>
+          <p class="card-text">Facilitan la colaboración en tiempo real, el trabajo remoto y la sincronización entre dispositivos.</p>
+          <div class="counter" id="counter1">0</div>
+          <button class="btn btn-success" onclick="increment('counter1')">+</button>
+          <button class="btn btn-warning" onclick="decrement('counter1')">−</button>
+          <button class="btn btn-secondary" onclick="reset('counter1')">Reset</button>
+          <button class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalCard1">Ver más</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="col-md-4">
+      <div class="card">
+        <img src="images/image2.jpg" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Card 2</h5>
+          <p class="card-text">La IA permite que máquinas realicen tareas que normalmente requieren inteligencia humana, como reconocer voz, analizar datos o tomar decisiones.</p>
+          <div class="counter" id="counter2">0</div>
+          <button class="btn btn-success" onclick="increment('counter2')">+</button>
+          <button class="btn btn-warning" onclick="decrement('counter2')">−</button>
+          <button class="btn btn-secondary" onclick="reset('counter2')">Reset</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="col-md-4">
+      <div class="card">
+        <img src="images/image3.jpg" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Card 3</h5>
+          <p class="card-text">Estos dispositivos recopilan y comparten datos automáticamente, permitiendo monitoreo remoto, automatización y mayor eficiencia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalCard1" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Detalles de Card 1</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <p>Contenido extendido de la card 1.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function increment(id) {
+      let el = document.getElementById(id);
+      el.textContent = parseInt(el.textContent) + 1;
+    }
+
+    function decrement(id) {
+      let el = document.getElementById(id);
+      el.textContent = parseInt(el.textContent) - 1;
+    }
+
+    function reset(id) {
+      document.getElementById(id).textContent = 0;
+    }
+  </script>
+</body>
+</html>
